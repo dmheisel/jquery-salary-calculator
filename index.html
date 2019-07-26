@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Employee Salary Calculator</title>
+		<link rel="stylesheet" href="bootstrap.css" />
+		<link rel="stylesheet" href="styles.css" />
+		<script src="scripts/jquery-3.4.1.min.js"></script>
+		<script src="scripts/client.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="jumbotron container">
+				<h1>Salary Calculator</h1>
+			</div>
+		</header>
+		<main>
+			<div id="inputContainer" class="container">
+				<form class="needs-validation" novalidate>
+					<div class="form-row align-items-center">
+						<div class="col-auto">
+							<label class="sr-only" for="firstNameInput">First Name</label>
+							<input
+								type="text"
+								class="form-control mb-2"
+								id="firstNameInput"
+								placeholder="First Name"
+								required
+							/>
+							<div class="invalid-feedback">
+								Required.
+							</div>
+						</div>
+						<div class="col-auto">
+							<label class="sr-only" for="lastNameInput">Last Name</label>
+							<input
+								type="text"
+								class="form-control mb-2"
+								id="lastNameInput"
+								placeholder="Last Name"
+								required
+							/>
+							<div class="invalid-feedback">
+								Required
+							</div>
+						</div>
+						<div class="col-auto">
+							<label class="sr-only" for="employeeIDInput">Employee ID</label>
+							<input
+								type="text"
+								class="form-control mb-2"
+								id="employeeIDInput"
+								placeholder="Employee ID"
+								required
+							/>
+							<div class="invalid-feedback">
+								Required.
+							</div>
+						</div>
+						<div class="col-auto">
+							<label class="sr-only" for="employeeTitleInput"
+								>Employee Title</label
+							>
+							<input
+								type="text"
+								class="form-control mb-2"
+								id="employeeTitleInput"
+								placeholder="Employee Title"
+								required
+							/>
+							<div class="invalid-feedback">
+								Required
+							</div>
+						</div>
+						<div class="col-auto">
+							<label class="sr-only" for="inlineFormInputGroup"
+								>Annual Salary</label
+							>
+							<div class="input-group mb-2">
+								<div class="input-group-prepend">
+									<div class="input-group-text">$</div>
+								</div>
+								<input
+									type="number"
+									class="form-control"
+									id="inlineFormInputGroup"
+									placeholder="Annual Salary"
+									required
+								/>
+								<div class="invalid-feedback">
+									Required.
+								</div>
+							</div>
+						</div>
+						<!-- <div class="col-auto">
+							<div class="form-check mb-2">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									id="autoSizingCheck"
+								/>
+								<label class="form-check-label" for="autoSizingCheck">
+									Remember me
+								</label>
+							</div>
+						</div> -->
+						<div class="col-auto">
+							<button
+								id="submitButton"
+								type="submit"
+								class="btn btn-primary mb-2"
+							>
+								Submit
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div id="tableContainer" class="container">
+				<table
+					class="table table-dark table-striped table-bordered table-hover"
+				>
+					<thead>
+						<th scope="col">#</th>
+						<th scope="col">Employee ID</th>
+						<th scope="col">First Name</th>
+						<th scope="col">Last Name</th>
+						<th scope="col">Title</th>
+						<th scope="col">Salary</th>
+						<th scope="col">
+							<!--  -->
+						</th>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>1234</td>
+							<td>Jane</td>
+							<td>Doe</td>
+							<td>Lead Analyst</td>
+							<td>$75,000</td>
+							<td>
+								<button
+									id="deleteButton"
+									type="button"
+									class="btn btn-outline-secondary btn-sm"
+								>
+									Delete
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="summaryContainer" class="container">
+				<span id="totalMonthlySalary">Numbers</span>
+			</div>
+		</main>
+	</body>
+</html>
