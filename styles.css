@@ -1,3 +1,8 @@
+body {
+	background-color: rgb(71, 99, 128);
+	color: white;
+}
+
 #inputContainer {
 	padding: 10px;
 }
@@ -8,4 +13,11 @@
 
 #summaryContainer {
 	text-align: right;
+}
+
+.jumbotron {
+	background-color: #eb8a2f;
+}
+.jumbotron h1 {
+	font-weight: bolder;
 }
