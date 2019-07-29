@@ -18,12 +18,13 @@
 		</header>
 		<main>
 			<div id="inputContainer" class="container">
-				<form>
+				<form id="employeeForm">
 					<div class="form-group">
 						<div class="form-row">
 							<div class="form-group col-md-4">
 								<input
 									id="employeeFirstName"
+									name="firstName"
 									type="text"
 									class="form-control"
 									placeholder="First Name"
@@ -32,6 +33,7 @@
 							<div class="form-group col-md-4">
 								<input
 									id="employeeLastName"
+									name="lastName"
 									type="text"
 									class="form-control"
 									placeholder="Last Name"
@@ -40,6 +42,7 @@
 							<div class="form-group col-md-4">
 								<input
 									id="employeeID"
+									name="employeeID"
 									type="text"
 									class="form-control"
 									placeholder="Employee ID"
@@ -50,6 +53,7 @@
 							<div class="form-group col-md-6">
 								<input
 									id="employeeTitle"
+									name="title"
 									type="text"
 									class="form-control"
 									placeholder="Employee Title"
@@ -58,18 +62,17 @@
 							<div class="form-group col-md-6">
 								<input
 									id="employeeAnnualSalary"
-									type="text"
+									name="salary"
+									type="number"
 									class="form-control"
 									placeholder="Annual Salary"
 								/>
 							</div>
 						</div>
 						<div class="form-row">
-							<div class="form-group col-md-1">
-								<button id="submitButton" type="submit" class="btn btn-primary">
-									Submit
-								</button>
-							</div>
+							<button type="submit" class="btn btn-primary">
+								Submit
+							</button>
 						</div>
 					</div>
 				</form>
@@ -79,7 +82,7 @@
 					class="table table-dark table-striped table-bordered table-hover"
 				>
 					<thead>
-						<th scope="col">#</th>
+
 						<th scope="col">Employee ID</th>
 						<th scope="col">First Name</th>
 						<th scope="col">Last Name</th>
@@ -89,19 +92,18 @@
 							<!--  -->
 						</th>
 					</thead>
-					<tbody>
+					<tbody id="employeeTableBody">
 						<tr>
-							<th scope="row">1</th>
-							<td>1234</td>
+
+							<td class="emp-ID">1234</td>
 							<td>Jane</td>
 							<td>Doe</td>
 							<td>Lead Analyst</td>
 							<td>$75,000</td>
 							<td>
 								<button
-									id="deleteButton"
 									type="button"
-									class="btn btn-outline-secondary btn-sm"
+									class="deleteButton btn btn-outline-secondary btn-sm"
 								>
 									Delete
 								</button>
@@ -111,7 +113,7 @@
 				</table>
 			</div>
 			<div id="summaryContainer" class="container">
-				<span id="totalMonthlySalary">Numbers</span>
+				<span id="totalMonthlyCost">Numbers</span>
 			</div>
 		</main>
 	</body>
