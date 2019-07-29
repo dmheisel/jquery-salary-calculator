@@ -6,6 +6,7 @@ function handleReady() {
 	// $('#employeeForm').submit(handleSubmit);
 	$('#employeeForm').submit(handleSubmit);
 	$('#tableContainer').on('click', '.deleteButton', handleDelete);
+	updateTable();
 }
 
 function handleDelete() {
@@ -100,7 +101,10 @@ function calcMonthlyCost() {
 	if (monthlyCost > 20000) {
 		$('#totalMonthlyCost')
 			.parent()
-			.removeClass('bg-info')
-			.addClass('bg-danger');
-	}
+			.addClass('d-inline-block bg-danger rounded');
+	} else {
+		$('#totalMonthlyCost')
+			.parent()
+			.removeClass('bg-danger');
+	} //updates background color to red if over 20000
 }
