@@ -1,6 +1,7 @@
 $('document').ready(handleReady);
 
 let employeeList = [];
+// store employees as objects in this array, use later to update DOM from array
 
 function handleReady() {
 	// $('#employeeForm').submit(handleSubmit);
@@ -15,13 +16,12 @@ function handleDelete() {
 		.parent()
 		.siblings('.emp-ID')
 		.text();
-	//finds idnumber to remove, filters employee list to remove employee with matcing number
+	//finds idnumber of employee to remove
+	//filters employee list to remove the employee with matching number
 	employeeList = employeeList.filter(
 		employee => employee.employeeID !== idNumber
 	);
 
-	// let el = $(this).parents('tr');
-	// el.remove();
 	updateTable();
 }
 
@@ -30,6 +30,7 @@ function handleSubmit() {
 
 	let inputFields = $('#employeeForm :input');
 	//selector for finding all input fields
+
 	let employee = {};
 	inputFields.each(function() {
 		// console.log($(this).attr('name'), $(this).val());
@@ -39,6 +40,7 @@ function handleSubmit() {
 	let matchingIds = employeeList.filter(
 		emp => emp.employeeID === employee.employeeID
 	);
+	//checks employee list array to find any IDs that match the input ID
 
 	if (matchingIds.length > 0) {
 		alert(
@@ -46,9 +48,9 @@ function handleSubmit() {
 		);
 		return;
 	}
-	//validate that employee isn't already on the table by checking ID
+	//throws alert and stops the function from adding the employee to the DOM/stored array
 
-	employee.salary = parseInt(employee.salary);
+	employee.salary = Number(employee.salary);
 	//convert salary from str to int
 
 	employeeList.push(employee); // adds to list arary to contain all employees
@@ -66,11 +68,17 @@ function updateTable() {
       <td class="name-first">${employee.firstName}</td>
       <td class="name-last">${employee.lastName}</td>
       <td class="emp-title">${employee.title}</td>
-      <td class="emp-salary">${employee.salary}</td>
+      <td class="emp-salary">${employee.salary.toLocaleString('en', {
+				minimumFractionDigits: 2,
+				maximumFractionDigits: 2,
+				style: 'currency',
+				currency: 'USD',
+				currencyDisplay: 'symbol'
+			})}</td>
       <td>
 				<button
 					type="button"
-					class="deleteButton btn btn-outline-secondary btn-sm"
+					class="deleteButton btn btn-info btn-block"
 					>
 					Delete
         </button>
@@ -78,15 +86,8 @@ function updateTable() {
       </tr>`;
 		$('#employeeTableBody').append(html);
 	}
-	calcMonthlyCost();
-}
 
-function calcMonthlyCost() {
-	let totalAnnualCost = 0;
-	for (let employee of employeeList) {
-		totalAnnualCost += employee.salary;
-	}
-	let monthlyCost = totalAnnualCost / 12;
+	let monthlyCost = calculateMonthlyCost();
 
 	$('#totalMonthlyCost').text(
 		`${monthlyCost.toLocaleString('en', {
@@ -107,4 +108,13 @@ function calcMonthlyCost() {
 			.parent()
 			.removeClass('bg-danger');
 	} //updates background color to red if over 20000
+}
+
+function calculateMonthlyCost() {
+	let totalAnnualCost = 0;
+	for (let employee of employeeList) {
+		totalAnnualCost += employee.salary;
+	}
+	let monthlyCost = totalAnnualCost / 12;
+	return monthlyCost;
 }
