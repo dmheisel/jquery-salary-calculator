@@ -81,11 +81,11 @@ function updateTable() {
 }
 
 function calcMonthlyCost() {
-	let annualCost = 0;
+	let totalAnnualCost = 0;
 	for (let employee of employeeList) {
-		annualCost += employee.salary;
+		totalAnnualCost += employee.salary;
 	}
-	let monthlyCost = annualCost / 12;
+	let monthlyCost = totalAnnualCost / 12;
 
 	$('#totalMonthlyCost').text(
 		`${monthlyCost.toLocaleString('en', {
