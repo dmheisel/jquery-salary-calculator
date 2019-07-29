@@ -98,6 +98,9 @@ function calcMonthlyCost() {
 	); // parses cost to readable display in USD
 
 	if (monthlyCost > 20000) {
-		$('#totalMonthlyCost').addClass('badge-danger');
+		$('#totalMonthlyCost')
+			.parent()
+			.removeClass('bg-info')
+			.addClass('bg-danger');
 	}
 }

@@ -17,7 +17,7 @@
 			</div>
 		</header>
 		<main>
-			<div id="inputContainer" class="container">
+			<div id="inputContainer" class="container border rounded">
 				<form id="employeeForm">
 					<div class="form-group">
 						<div class="form-row">
@@ -86,7 +86,7 @@
 			<div id="tableContainer" class="container">
 				<table class="table table-striped table-bordered table-hover">
 					<thead class="thead-dark">
-						<th scope="col">Employee ID</th>
+						<th scope="col">ID No.</th>
 						<th scope="col">First Name</th>
 						<th scope="col">Last Name</th>
 						<th scope="col">Title</th>
@@ -113,11 +113,11 @@
 					</tbody>
 				</table>
 			</div>
-			<div id="summaryContainer" class="container">
-				<h3>
+			<div id="summaryContainer" class="container-fluid">
+				<h2 class="d-block p-2 bg-info text-white">
 					Total Monthly Cost:
-					<span class="badge badge-secondary" id="totalMonthlyCost"></span>
-				</h3>
+					<span id="totalMonthlyCost"></span>
+				</h2>
 			</div>
 		</main>
 	</body>
